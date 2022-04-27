@@ -22,6 +22,7 @@ jobs:
       - checkout
       - restore_cache:
           key: gem-cache-v1-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
       - run:
           command: bundle exec rspec
 
